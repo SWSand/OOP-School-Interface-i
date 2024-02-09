@@ -15,6 +15,16 @@ class Student(Person):
                 cls.all_students_list.append(a_student)
                 # print(a_student)
         return cls.all_students_list
+    
+    @classmethod
+    def get_student_by_name(cls,name):
+        for student in cls.all_students_list:
+            if name.lower() == student.name.lower():
+                return student
+            else:
+                return f"Student not found!"
+
+
 
     def __init__(self,name=None,age=None,role=None,school_id=None,password=None):
         super().__init__(name,age,role)
